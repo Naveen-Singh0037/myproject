@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>Career Dendrogram</title>
+</head>
+<style>
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .banner-content {
+    padding-bottom: 4%;
+    padding-top: 4%;
+  }
+
+  #side-menu {
+    background-color: #393939;
+  }
+
+  #side-menu .nav-item {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  #side-menu .nav-item p {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: .5rem 1rem;
+  }
+
+  #side-menu .nav-item .nav-link {
+    border: 0;
+    border-radius: 0;
+    color: #4b9cdb;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  #side-menu .nav-item .nav-link.active {
+    background-color: #4b9cdb;
+    color: white;
+  }
+
+
+  #side-menu-tabContent {
+    background: #f5f5f5;
+    padding: 2%;
+  }
+
+  #tab1-programs.show,
+  #tab2-programs.show {
+    display: block;
+  }
+
+  #tab1-programs,
+  #tab2-programs {
+    background-color: #4f565c;
+    display: none;
+  }
+
+  #tab1-programs .nav-link,
+  #tab2-programs .nav-link {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+  }
+
+  #tab1-programs .nav-link.active,
+  #tab2-programs .nav-link.active {
+    background-color: transparent !important;
+    color: rgba(255, 255, 255, 1) !important;
+  }
+
+  .side-menu__title {
+    border-bottom: solid 2px white;
+    color: white;
+  }
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 2%;
+  }
+
+  .banner__content {
+    font-size: 1.1rem;
+  }
+</style>
+
+<body>
+  <div class="section banner-content">
+    <div class="container p-5">
+      <div class="row">
+        <div class="col-lg-3 px-4">
+          <ul class="nav flex-column nav-pills sticky-lg-top" id="side-menu" role="tablist" aria-orientation="vertical">
+            <li class="nav-item" role="presentation">
+              <p class="side-menu__title">Programming Careers
+              </p>
+            </li>
+            <li class="nav-item" role="presentation"> <a class="nav-link active" id="tab1-tab" data-bs-toggle="pill"
+                href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Freelance Programming </a>
+              <nav id="tab1-programs" class="navbar navbar-light flex-column align-items-stretch px-3">
+                <nav class="nav nav-pills flex-column"><a class="nav-link" href="#tab1_section1">Section 1</a> <a
+                    class="nav-link" href="#tab1_section2">Section 2</a> <a class="nav-link"
+                    href="#tab1_section3">Section 3</a></nav>
+              </nav>
+            </li>
+            <li class="nav-item" role="presentation"> <a class="nav-link" id="tab2-tab" data-bs-toggle="pill"
+                href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">Software Engineer</a>
+            </li>
+            <li class="nav-item" role="presentation"> <a class="nav-link" id="tab3-tab" data-bs-toggle="pill"
+                href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"> Blogging </a> </li>
+          </ul>
+        </div>
+        <div class="col-lg-8">
+          <div class="tab-content" id="side-menu-tabContent" data-aos="fade-up" data-aos-duration="1200">
+            <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+              <div class="row">
+                <div class="col-lg-12">
+                  <CENTER>
+                    <h1><B>Freelance Programming</B></h1>
+                  </CENTER>
+                  <h2>Introduction</h2>
+                  <p>Freelance programming involves contracting your coding and application development skills to
+                    various clients. Freelance programmers are self-employed, meaning they pay their own taxes, choose
+                    their own clients, set their own hours and manage their own workspace. As a freelance programmer,
+                    you can write code for websites, software, mobile apps and any other type of computing application.
+                    You communicate with clients to determine their needs, then complete the entire programming project
+                    from start to finish.
+
+                    Some programming professionals work on freelance projects part-time while still working at a
+                    full-time programming job. Others are independent contractors who sell their coding skills as their
+                    main source of income. Because freelance programmers have full control over the projects they
+                    accept, they can decide how many hours per week they want to dedicate to freelancing.
+                  </p>
+
+                  <h2>Scope</h2>
+                  High
+                  <h2>Competition</h2>
+                  High
+                  <h2>Eligibility</h2>
+                  Knowledge of software development in at least one domain. Some popular domains are web development,
+                  iOS app development, Android app development and so on.
+                  <h2>Income</h2>
+                  Freelance Software Developer income in India ranges between ₹ 2.3 Lakhs to ₹ 20.0 Lakhs with an
+                  average annual income of ₹ 8.6 Lakhs.
+                  <h2>Courses</h2>
+                  You can do your learning by either going for formal training or opt for an ad hoc approach using
+                  online resources. There are plenty of online resources for almost all the domains out there, some of
+                  them are..
+
+                  <ul>
+                    <li>Popular Tutorial Websites like GeeksforGeeks, TutorialsPoint etc.</li>
+                    <li>Online Forums like GeeksforGeeks Forum, StackOverflow, Quora etc.</li>
+                    <li>Online course platforms like Edx, Udemy, Coursera, Udacity, Plural Sight, Khan Academy etc.</li>
+                    <li>Major YouTube Channels like TheNewBoston, FreeCodeCamp.org, Envato Tuts+, mycodeschool, Derek
+                      Banas etc.</li>
+                  </ul>
+
+
+                  <h2>Recommended Roadmap</h2>
+                  First of all, you will have to decide your domain, that is, the field of your interest/skill
+                  suitability. For example web development, iOS app development, Android app development and so on. You
+                  may just pick one and start targeted learning or you might like to explore a bit of everything before
+                  choosing a domain. You might already have expertise in one of the domains with experience of having
+                  some projects done. Whether you are an absolute beginner or an expert, the gaps in your understanding
+                  can be filled either by utilizing online resources like tutorials, documentation etc. or by undergoing
+                  a formal training. Each domain has its own skillset requirement. These skills include knowledge of
+                  programming languages and popular domain-specific frameworks. For example:
+
+                  <ul>
+                    <li>Java/Kotlin for Android App development.</li>
+                    <li>HTML, CSS, and JavaScript for front end web development.</li>
+                    <li>Python for App development on numerous platforms(like Django is a Python framework for web
+                      development) and many more.</li>
+                    <li>In general, you will have to be very good with the use of suitable data structures and design
+                      and optimization of algorithms.</li>
+                  </ul>
+
+                  Once you are done with basics and have done a few projects, you can register yourself at some platform
+                  for freelancers and get started. There are many popular platforms like Freelancer, Upwork, Fiverr etc.
+                  It is advisable to start small and build your reputation. After building a good enough reputation and
+                  a brand name you can consider creating your own website for your work. This will increase your
+                  per-project income as well as further build up your brand.
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+              <div class="row">
+                <div class="col-lg-12">
+                  <CENTER>
+                    <h1><B>Software Engineer</B></h1>
+                  </CENTER>
+
+                  <h2>Introduction</h2>
+                  A software engineer is a person who applies the principles of software engineering to design, develop,
+                  maintain, test, and evaluate computer software. The term programmer is sometimes used as a synonym,
+                  but may also lack connotations of engineering education or skills.
+                  <h2>Scope</h2>
+                  High
+                  <h2>Competition</h2>
+                  High
+                  <h2>Eligibility</h2>
+                  A minimum of 55% marks in 10+2 or equivalent is compulsory for pursuing B. Tech/B.E. in software
+                  engineering or diploma courses in the same.
+
+                  For admission in M. Tech in Software Engineering, candidates must have a passing certificate of
+                  graduation level with a minimum aggregate of 50% in the required field.
+                  <h2>Income</h2>
+                  Salary of a software engineer in India ranges from ₹ 3,00,000 to ₹ 50,00,000 lakhs per annum.
+                  <h2>Recommended Roadmap</h2>
+
+                  <ul>
+                    <li>Decision Making: Students must search before pursuing the course. You must be prepared for
+                      pursuing the course to be a software developer. This is your life decision.</li>
+                    <li>Subject Choices: Students must have to choose science as a stream in secondary school. You must
+                      choose physics, chemistry, maths (PCM) or physics, chemistry, maths, biology (PCMB) as the
+                      subject. You should be aware that you are interested in these subjects.</li>
+                    <li>Entrance Exam Preparation: There are many entrance exams for a software developer like BITSAT,
+                      NATA, JEE Main, JEE advanced, SRMJEE. Prepare for the entrance exam after 10+2 standard. When you
+                      clear these entrance exams, you will get admission to a college or university for pursuing
+                      graduation.
+                    </li>
+                    <li>Selecting Correct Colleges: Make a list of top colleges or universities which offer a course for
+                      software developers. You have to score in the entrance exam for admission to top colleges. Search
+                      about top colleges, faculties, fees, to make a good decision.</li>
+                    <li>After Qualifying Exam: When you clear the entrance exam, your new journey of college life will
+                      start for a minimum of 4 years. 4 years will be full of theoretical and practical knowledge.
+                      Complete and participate in extracurricular activities to boost skills and experience. Start
+                      internships for enhancing skills.
+                    </li>
+                  </ul>
+
+
+
+
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
+              <div class="row">
+                <div class="col-lg-12">
+                  <CENTER>
+                    <h1><B>Blogging</B></h1>
+                  </CENTER>
+
+
+                  <h2>Introduction</h2>
+
+                  Blogging is as simple as obtaining a website and publishing original content on it. Blogging refers to
+                  writing, photography, and other media that's self-published online. Blogging started as an opportunity
+                  for individuals to write diary-style entries, but it has since been incorporated into websites for
+                  many businesses.
+
+                  Tech-savvy bloggers can buy a domain name and build the website themselves. Those with less HTML
+                  knowledge can create an account with sites like WordPress that simplify the web design and publishing
+                  process.
+
+
+                  <h2>Scope</h2>
+                  High
+                  <h2>Competition </h2>
+                  High
+
+                  <h2>Eligibility</h2>
+                  Any one who is interested in content writing & possess a basic knowledge of websites & digital
+                  marketing can start.
+
+                  <h2>Income</h2>
+
+                  According to the data of Digital Uncovered, in India, a professional blogger can earn up to $10,000
+                  every month. On average, a blogger can earn between $300 and $400 per month. Celebrity bloggers can
+                  earn in the range of $20,000 to $30,000 every month. Blogging has emerged as a serious profession for
+                  many people in India over the last few years.
+
+                  <h2>Courses</h2>
+                  Udemy, Coursera, Youtube, etc.
+
+                  <h2>Recommended Roadmap</h2>
+                  Start blogging as a side business. Slowly learn via online courses & implement those learnings on your
+                  blog. If possible, go and meet successful bloggers of your country & take guidance. When you'll start
+                  earning enough money from blogging, it's time to make it your full time job.
+
+                  <h2>Perks</h2>
+
+                  <ul>
+                    <li>You can manage your online identity and build trust.</li>
+                    <li>You will improve your writing skills.</li>
+                    <li>You can get technical knowledge.</li>
+                    <li>Showcase Your Professional Skills.</li>
+                    <li>Earn Extra Money.</li>
+                    <li>Market Your Business.</li>
+                    <li>Land A Job Offer Fast.</li>
+                  </ul>
+
+
+
+                  <h2>Challenges</h2>
+
+                  <ul>
+                    <li>You May Invest Time, Sweat And Soul And Get Nothing In Return.</li>
+                    <li>It Takes A Huge Upfront Investment Of Time And Work.</li>
+                    <li>It’s A Lot More Difficult Than It Looks.</li>
+                  </ul>
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/.row-->
+    </div>
+    <!--/.container-->
+  </div>
+
+  <!--/.container-->
+  </div>
+  <!--/.section-->
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</body>
+<script>$(function () {
+    AOS.init();
+    var scrollSpy;
+    var hash = window.location.hash;
+    hash && $('#side-menu>li>a[href="' + hash + '"]').tab("show");
+
+    $("#side-menu>li>a").click(function (e) {
+      e.preventDefault();
+      $(this).tab("show");
+      window.location.hash = this.hash;
+
+      if (this.hash == "#tab1") {
+        if ($("#tab1-tab").hasClass("active")) {
+          $("#tab1-programs").addClass("show");
+          scrollSpy = new bootstrap.ScrollSpy(document.body, { target: "#tab1-programs" });
+        }
+      } else {
+        $("#tab1-programs").removeClass("show");
+        scrollSpy.dispose();
+      }
+    });
+    if ($("#tab1-tab").hasClass("active")) {
+      $("#tab1-programs").addClass("show");
+      scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: '#tab1-programs'
+      });
+    }
+
+  });
+</script>
+
+</html>

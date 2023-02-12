@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naveen Singh</title>
+    <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive-style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/sss.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</head>
+<style>
+    /*----------------genealogy-scroll----------*/
+    .h3, h3 {
+    font-size: .9rem;
+}
+    .genealogy-scroll::-webkit-scrollbar {
+        width: 5px;
+        height: 8px;
+    }
+
+    .genealogy-scroll::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: #e4e4e4;
+    }
+
+    .genealogy-scroll::-webkit-scrollbar-thumb {
+        background: #212121;
+        border-radius: 10px;
+        transition: 0.5s;
+    }
+
+    .genealogy-scroll::-webkit-scrollbar-thumb:hover {
+        background: #d5b14c;
+        transition: 0.5s;
+    }
+
+
+    /*----------------genealogy-tree----------*/
+    .genealogy-body {
+        white-space: nowrap;
+        overflow-y: hidden;
+        padding: 50px;
+        min-height: 90vh;
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    .genealogy-tree {
+        display: inline-block;
+    }
+
+    .genealogy-tree ul {
+        padding-top: 20px;
+        position: relative;
+        padding-left: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .genealogy-tree li {
+        float: left;
+        text-align: center;
+        list-style-type: none;
+        position: relative;
+        padding: 20px 5px 0 5px;
+    }
+
+    .genealogy-tree li::before,
+    .genealogy-tree li::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 50%;
+        border-top: 2px solid #ccc;
+        width: 50%;
+        height: 18px;
+    }
+    .genealogy-tree li::before,
+    .genealogy-tree li::after {
+        font-size: 0rem;
+    font-weight: 400;
+    line-height: 0.5;
+    }
+    .genealogy-tree li::after {
+        right: auto;
+        left: 50%;
+        border-left: 2px solid #ccc;
+    }
+
+    .genealogy-tree li:only-child::after,
+    .genealogy-tree li:only-child::before {
+        display: none;
+    }
+
+    .genealogy-tree li:only-child {
+        padding-top: 0;
+    }
+
+    .genealogy-tree li:first-child::before,
+    .genealogy-tree li:last-child::after {
+        border: 0 none;
+    }
+
+    .genealogy-tree li:last-child::before {
+        border-right: 2px solid #ccc;
+        border-radius: 0 5px 0 0;
+        -webkit-border-radius: 0 5px 0 0;
+        -moz-border-radius: 0 5px 0 0;
+    }
+
+    .genealogy-tree li:first-child::after {
+        border-radius: 5px 0 0 0;
+        -webkit-border-radius: 5px 0 0 0;
+        -moz-border-radius: 5px 0 0 0;
+    }
+
+    .genealogy-tree ul ul::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        border-left: 2px solid #ccc;
+        width: 0;
+        height: 20px;
+    }
+
+    .genealogy-tree li a {
+        text-decoration: none;
+        color: #666;
+        font-family: arial, verdana, tahoma;
+        font-size: 11px;
+        display: inline-block;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+    }
+
+    .genealogy-tree li a:hover+ul li::after,
+    .genealogy-tree li a:hover+ul li::before,
+    .genealogy-tree li a:hover+ul::before,
+    .genealogy-tree li a:hover+ul ul::before {
+        border-color: #fbba00;
+    }
+
+    /*--------------memeber-card-design----------*/
+    .member-view-box {
+        padding: 0px 20px;
+        text-align: center;
+        border-radius: 4px;
+        position: relative;
+    }
+
+    .member-image {
+        width: 60px;
+        position: relative;
+    }
+
+    .member-image img {
+        width: 60px;
+        height: 60px;
+        border-radius: 6px;
+        background-color: #000;
+        z-index: 1;
+    }
+    .ds{
+        font-size: 0rem;
+    font-weight: 400;
+    line-height: 0.1;
+    }
+    
+/* element.style {
+} */
+.genealogy-tree li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 23px 5px 0 5px;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+user agent stylesheet
+ul ul ul {
+    list-style-type: square;
+}
+user agent stylesheet
+ul ul {
+    list-style-type: circle;
+}
+user agent stylesheet
+ul {
+    list-style-type: disc;
+}
+user agent stylesheet
+li {
+    text-align: -webkit-match-parent;
+}
+user agent stylesheet
+ul ul ul {
+    list-style-type: square;
+}
+user agent stylesheet
+ul ul {
+    list-style-type: circle;
+}
+user agent stylesheet
+ul {
+    list-style-type: disc;
+}
+user agent stylesheet
+li {
+    text-align: -webkit-match-parent;
+}
+user agent stylesheet
+ul ul {
+    list-style-type: circle;
+}
+user agent stylesheet
+ul {
+    list-style-type: disc;
+}
+user agent stylesheet
+li {
+    text-align: -webkit-match-parent;
+}
+user agent stylesheet
+ul {
+    list-style-type: disc;
+}
+.genealogy-body {
+    white-space: nowrap;
+    overflow-y: hidden;
+    padding: 50px;
+    min-height: 90vh;
+    padding-top: 10px;
+    text-align: center;
+}
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    /* font-size: 1rem; */
+    font-weight: 400;
+    line-height: 0.2;
+    color: #212529;
+    text-align: left;
+   
+}
+.header_wrapper .nav-item {
+    margin: 8px 10px;
+}
+.text{
+    margin-top: 23px;
+}
+</style>
+
+<body  data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="75">
+    <!-- Navbar section -->
+    <header class="header_wrapper">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <div class="box">
+                        <div class="text animated bounce">dendrogram</div>
+                    </div>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-stream navbar-toggler-icon"></i>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="
+                margin-top: 7px;
+            ">
+                    <ul class="navbar-nav menu-navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link " href="index.html" style="
+                            padding-bottom: 1.2rem ; font-size: 18px;
+                         
+                        ">Home</a>
+                            <!-- <a class="nav-link active" aria-current="page" href="#home">Home</a> -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html" style="
+                            padding-bottom: 1.2rem; font-size: 18px;
+                          
+                        ">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="service.html" style="
+                            padding-bottom: 1.2rem; font-size: 18px;
+                          
+                        ">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html" style="
+                            padding-bottom: 1.2rem; font-size: 18px;
+                            
+                        ">Contact</a>
+                        </li>
+                        <!-- <li class="nav-item mt-3 mt-lg-0">
+                            <a class="main-btn" href="#search">Log In</a>
+                        </li> -->
+                        <div class="flex-shrink-0 dropdown">
+                            <a href="#" class="d-block link text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                              <img src="images/profi.png" alt="mdo" width="40" height="37" class="rounded-circle">
+                            </a>
+                            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser2">
+                              <!-- <li><a class="dropdown-item" href="#">New project...</a></li> -->
+                              <li><a class="dropdown-item" href="#">Settings</a></li>
+                              <li><a class="dropdown-item" href="#">Profile</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            </ul>
+                          </div>
+                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#loginModalCenter">
+                            Login
+                        </button> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Modal login-->
+ 
+        <main role="main" style="padding: 50px 0 0 0px;;">
+            <div class="body genealogy-body genealogy-scroll">
+                <div class="genealogy-tree">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <div class="member-view-box">
+                                    <div class="member-image">
+                                        <img src="images/profi.png" alt="Member">
+                                        <div class="member-details">
+                                            <h3>Dendrogram
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <ul class="active">
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <div class="member-view-box">
+                                            <div class="member-image">
+                                                <!-- <img src="3.jpg" alt="Member"> -->
+                                                <div class="member-details">
+                                                    <h3>Skills</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="member-view-box">
+                                                    <div class="member-image">
+                                                        <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                            alt="Member"> -->
+                                                        <div class="member-details">
+                                                            
+                                                            <h3>Programming
+                                                                </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a class="ds" href="contant/Programming.html" target="_blank"><h3>Software <br>
+                                                                         Engineering</h3></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a class="ds" href="contant/Programming1.html" target="_blank"><h3>Blogging</h3></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+        
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a href="contant/Programming2.html" target="_blank"><h3>Freelance <br> Programming</h3></a>
+                                                                    <!-- <h3>Freelance <br> Programming</h3> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="member-view-box">
+                                                    <div class="member-image">
+                                                        <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                            alt="Member"> -->
+                                                        <div class="member-details">
+                                                            
+                                                            <h3>Public <br> Speaking</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a class="ds" href="contant/public.html" target="_blank"><h3>Corporate <br>
+                                                                        Trainer</h3></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a class="ds" href="contant/public1.html" target="_blank"><h3>Purchasing <br> Manager</h3></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+        
+                                                </li>
+                                                
+                                            </ul>
+                                        </li>
+                                       
+        
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="member-view-box">
+                                                    <div class="member-image">
+                                                        <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                            alt="Member"> -->
+                                                        <div class="member-details">
+                                                        
+                                                            <h3>Maths</h3>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a href="contant/math.html"  target="_blank"><h3>Budget <br>Analyst</h3></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a href="contant/math1.html"  target="_blank"><h3>Astronomer</h3></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <div class="member-view-box">
+                                            <div class="member-image">
+                                                <!-- <img src="3.jpg" alt="Member"> -->
+                                                <div class="member-details">
+                                                    <h3>Hobbies</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="member-view-box">
+                                                    <div class="member-image">
+                                                        <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                            alt="Member"> -->
+                                                        <div class="member-details">
+                                                           
+                                                            <h3>Music</h3>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a href="contant/music.html"  target="_blank"> <h3>Singer</h3></a>
+                                                                    
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a href="contant/music1.html"  target="_blank"><h3>Music  <br>Composer</h3></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+        
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a href="contant/music2.html"  target="_blank"><h3>Music  <br>Producer</h3></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+        
+                                                </li>
+                                                
+                                            </ul>
+                                        </li>
+                                     
+                                       
+        
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="member-view-box">
+                                                    <div class="member-image">
+                                                        <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                            alt="Member"> -->
+                                                        <div class="member-details">
+                                                           
+                                                            <h3>Designing</h3>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a href="contant/design.html"  target="_blank"> <h3>Cartoonist</h3></a>
+                                                                    
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a href="contant/design1.html"  target="_blank"><h3>Graphics  <br> Disigning</h3></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+        
+                                                </li>
+                                                
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <div class="member-view-box">
+                                            <div class="member-image">
+                                                <!-- <img src="3" alt="Member"> -->
+                                                <div class="member-details">
+                                                    <h3>Interests</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="member-view-box">
+                                                    <div class="member-image">
+                                                        <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                            alt="Member"> -->
+                                                        <div class="member-details">
+                                                            <h3>History</h3>
+                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a class="ds" href="contant/History.html" target="_blank"><h3>Archaeologist</h3></a>
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+        
+                                                                   
+                                                                    <a class="ds" href="contant/History1.html" target="_blank"> <h3>Civil <br>Services</h3></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+        
+                                                </li>
+                                               
+                                            </ul>
+                                        </li>
+        
+        
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="member-view-box">
+                                                    <div class="member-image">
+                                                        <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                            alt="Member"> -->
+                                                        <div class="member-details">
+                                                   
+                                                            <h3>Travelling</h3>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a href="contant/Travelling.html" target="_blank"><h3>Photographer</h3></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);">
+                                                        <div class="member-view-box">
+                                                            <div class="member-image">
+                                                                <!-- <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
+                                                                    alt="Member"> -->
+                                                                <div class="member-details">
+                                                                    <a href="contant/Travelling1.html" target="_blank"><h3>Travel <br> Blogger</h3></a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+        
+                                                </li>
+                                                
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+       </main>
+
+</main>
+
+        <!-- End -->
+
+        <footer class="container">
+            <p style="    float: right!important;"><a href="#">Back to top</a></p>
+            <p> <a href="#"></a>
+            <pre> </pre> <a href="#"></a></p>
+        </footer>
+
+        <!-- Footer section -->
+        <section class="footer_wrapper mt-3 mt-md-0">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-6 text-center text-md-start">
+                        <div class="footer-logo mb-3 mb-md-0">
+                            <img src="images/logo.png">
+
+                            <div class="copyright-text text-lg-start text-center mb-3 mb-lg-0">
+                                <p><a href="#">Privacy</a> · <a href="#">Terms</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul
+                            class="list-unstyled d-flex justify-content-center justify-content-md-end justify-content-lg-center jus social-icon mb-3 mb-md-0">
+                            <li>
+                                <a href="https://www.instagram.com/naveen_singh_011/"><i
+                                        class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/profile.php?id=100008706755411"><i
+                                        class="fab fa-facebook-f"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/naveen-singh-a52933203/"><i
+                                        class="fab fa-linkedin-in"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="copyright-text text-lg-start text-center mb-3 mb-lg-0">
+                            <p class="mb-0">Copyright © 2022 <a href="#">Naveen Singh</a>. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+
+        <!-- Custom Js Link -->
+        <script src="js/main.js"></script>
+</body>
+<script>
+    $(function () {
+        $('.genealogy-tree ul').hide();
+        $('.genealogy-tree>ul').show();
+        $('.genealogy-tree ul.active').show();
+        $('.genealogy-tree li').on('click', function (e) {
+            var children = $(this).find('> ul');
+            if (children.is(":visible")) children.hide('fast').removeClass('active');
+            else children.show('fast').addClass('active');
+            e.stopPropagation();
+        });
+    });
+
+</script>
+</html>

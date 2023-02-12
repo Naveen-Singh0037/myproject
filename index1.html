@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Career Dendrogram</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.3/css/jquery.orgchart.min.css'>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<style>
+  .orgchart {
+    background-image: none;
+  }
+</style>
+<body>
+  <!-- partial:index.partial.html -->
+
+  <div id="edit-panel" class="view-state">
+    <!-- <input type="text" id="key-word"> -->
+    
+    <input type="text"  id="key-word" placeholder="Enter Skills, Hobbies, Interest" onkeyup="validateOnlyTextField(this)" list="cars">
+      <datalist id="cars">
+          <option value="Programming" >
+          <option value="Music" >
+          <option value="Maths">
+          <option value="Designing" >
+      </datalist>
+      <button type="submit" onClick="refreshPage()"><div class=""><i class="fa fa-refresh"></i></div></button>
+    <button type="submit" id="btn-filter-node" >Search</button>
+   
+  </div>
+  <div id="chart-container"></div>
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/orgchart/2.1.3/js/jquery.orgchart.min.js'>
+
+  </script>
+  <script src="./script.js"></script>
+  <script>
+    function refreshPage() {
+      window.location.reload();
+    }
+  </script>
+<script>
+  function validateOnlyTextField(element) {
+    var str = element.value;
+    if(!(/^[a-zA-Z, ]+$/.test(str))){
+        str = str.substr(0,  str.length -1);
+        element.value = str;
+    }
+}
+</script>
+</html>
